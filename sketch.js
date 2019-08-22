@@ -3,7 +3,7 @@
 let cW = window.innerWidth;
 let cH = window.innerHeight;
 
-let tileSize = 60;
+let tileSize = 300;
 let noiseScale = 0.009;
 
 let water = "#4bcffa";
@@ -23,8 +23,8 @@ function draw() {
 }
 
 function createTileGrid() {
-	for (var x = 0; x < width; x += width / tileSize) {
-		for (var y = 0; y < height; y += height / tileSize) {
+	for (var x = 0; x < width; x += width / tileSize * 0.9) {
+		for (var y = 0; y < height; y += height / tileSize * 0.9) {
 			let tileChooser = calculateNoise(x, y);
 			if (tileChooser <= 0.4) {
 				fill(water);
@@ -35,7 +35,7 @@ function createTileGrid() {
 			}
 			noStroke();
 			rect(x, y, width / tileSize, height / tileSize);
-			console.log(calculateNoise(x, y) * 255);
+			console.log("Count");
 		}
 	}
 }
